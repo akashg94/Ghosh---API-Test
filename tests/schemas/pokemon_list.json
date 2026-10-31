@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paginated Pokemon list",
+  "type": "object",
+  "required": ["count", "next", "previous", "results"],
+  "properties": {
+    "count": {"type": "integer", "minimum": 0},
+    "next": {"type": ["string", "null"]},
+    "previous": {"type": ["string", "null"]},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "pattern": "^https?://"}
+        }
+      }
+    }
+  }
+}
